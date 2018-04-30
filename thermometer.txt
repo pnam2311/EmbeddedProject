@@ -1,0 +1,34 @@
+# NOT WORKING PROPERLY
+
+void setup()
+{
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  // Tinh nguon vao
+  int vol = analogRead(0) * (4800/1024);
+  
+  // Cong thuc bien doi nhiet do (theo do C) 
+  int temp = (vol) / 10;
+  
+  if (temp < 30)
+    digitalWrite(13, LOW);
+  if (temp > 30)
+    digitalWrite(13, HIGH);
+  
+  Serial.println(vol);
+  Serial.println(temp);
+  
+}
+
+note:
+- Temperature sensor
+
+- analogRead(): doc gia tri tu chan analog
+dong dien dau vao duoc dua ve gia tri nguyen tu 0-1023 (tuong ung 0-5V)
+
+ioref + vin
+gioi han nguon vao
